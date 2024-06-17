@@ -2,7 +2,7 @@ import { Column, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript"
 import { InvoiceItemModel } from "./invoice-item.model";
 
 @Table({
-  tableName: 'invoice',
+  tableName: 'invoices',
   timestamps: false
 })
 
@@ -33,7 +33,7 @@ export class InvoiceModel extends Model {
   state: string
 
   @Column({ allowNull: false })
-  zipCode: string
+  zipcode: string
 
   @HasMany(() => InvoiceItemModel)
   declare items: InvoiceItemModel[];

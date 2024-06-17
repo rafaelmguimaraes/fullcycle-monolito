@@ -4,7 +4,6 @@ import { InvoiceItemModel } from "../repository/invoice-item.model"
 import InvoiceRepository from "../repository/invoice.repository"
 import GenerateInvoiceUseCase from "../usecase/generate-invoice/gerenarte-invoice.usecase"
 import FindInvoiceUseCase from "../usecase/find-invoice/find-invoice.usecase"
-import Address from "../../@shared/domain/value-object/address"
 import InvoiceFacade from "./invoice.facade"
 
 describe("Invoice Facade test", () => {
@@ -71,7 +70,7 @@ describe("Invoice Facade test", () => {
         expect(invoice.complement).toBe(input.complement)
         expect(invoice.city).toBe(input.city)
         expect(invoice.state).toBe(input.state)
-        expect(invoice.zipCode).toBe(input.zipCode)
+        expect(invoice.zipcode).toBe(input.zipCode)
         expect(invoice.items).toBeDefined()
         expect(invoice.items.length).toBe(2)
         expect(invoice.items[0].name).toBe(input.items[0].name)
@@ -94,13 +93,13 @@ describe("Invoice Facade test", () => {
             complement: 'Casa Verde',
             city: 'Criciúma',
             state: 'SC',
-            zipCode: '88888-888',
+            zipcode: '88888-888',
             createdAt: new Date(),
             updatedAt: new Date()
         })
         const invoiceItem1 = await InvoiceItemModel.create({
             id: "1.1",
-            invoice_id: "1",
+            invoiceId: "1",
             name: "Item 1",
             price: 10,
             createdAt: new Date(),
@@ -108,7 +107,7 @@ describe("Invoice Facade test", () => {
         })
         const invoiceItem2 = await InvoiceItemModel.create({
             id: "1.2",
-            invoice_id: "1",
+            invoiceId: "1",
             name: "Item 2",
             price: 20,
             createdAt: new Date(),
@@ -127,7 +126,7 @@ describe("Invoice Facade test", () => {
         expect(result.address.complement).toBe(input.complement)
         expect(result.address.city).toBe(input.city)
         expect(result.address.state).toBe(input.state)
-        expect(result.address.zipCode).toBe(input.zipCode)
+        expect(result.address.zipCode).toBe(input.zipcode)
         expect(result.items).toBeDefined()
         expect(result.items.length).toBe(2)
         expect(result.items[0].name).toBe(invoiceItem1.name)

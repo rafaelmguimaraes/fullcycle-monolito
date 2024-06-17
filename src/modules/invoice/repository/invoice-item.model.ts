@@ -2,7 +2,7 @@ import { Column, Model, PrimaryKey, Table, ForeignKey, BelongsTo } from "sequeli
 import { InvoiceModel } from "./invoice.model";
 
 @Table({
-  tableName: 'invoice_item',
+  tableName: 'invoice_items',
   timestamps: false
 })
 
@@ -12,8 +12,8 @@ export class InvoiceItemModel extends Model {
   id: string
 
   @ForeignKey(() => InvoiceModel)
-  @Column({ allowNull: false })
-  invoice_id: string
+  @Column({ allowNull: false, field: 'invoice_id' })
+  invoiceId: string
 
   @BelongsTo(() => InvoiceModel)
   declare invoice: InvoiceModel;

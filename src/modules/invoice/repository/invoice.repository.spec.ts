@@ -78,7 +78,7 @@ describe("Invoice Repository test", () => {
         expect(invoiceDb.complement).toEqual(invoice.address.complement)
         expect(invoiceDb.city).toEqual(invoice.address.city)
         expect(invoiceDb.state).toEqual(invoice.address.state)
-        expect(invoiceDb.zipCode).toEqual(invoice.address.zipCode)
+        expect(invoiceDb.zipcode).toEqual(invoice.address.zipCode)
         expect(invoiceDb.createdAt).toStrictEqual(invoice.createdAt)
         expect(invoiceDb.updatedAt).toStrictEqual(invoice.updatedAt)
         expect(invoiceDb.items.length).toEqual(2)
@@ -104,13 +104,13 @@ describe("Invoice Repository test", () => {
             complement: 'Casa Verde',
             city: 'Criciúma',
             state: 'SC',
-            zipCode: '88888-888',
+            zipcode: '88888-888',
             createdAt: new Date(),
             updatedAt: new Date()
         })
         const invoiceItem1 = await InvoiceItemModel.create({
             id: "1.1",
-            invoice_id: "1",
+            invoiceId: "1",
             name: "Item 1",
             price: 10,
             createdAt: new Date(),
@@ -118,7 +118,7 @@ describe("Invoice Repository test", () => {
         })
         const invoiceItem2 = await InvoiceItemModel.create({
             id: "1.2",
-            invoice_id: "1",
+            invoiceId: "1",
             name: "Item 2",
             price: 20,
             createdAt: new Date(),
@@ -137,7 +137,7 @@ describe("Invoice Repository test", () => {
         expect(invoiceDB.address.complement).toEqual(invoice.complement)
         expect(invoiceDB.address.city).toEqual(invoice.city)
         expect(invoiceDB.address.state).toEqual(invoice.state)
-        expect(invoiceDB.address.zipCode).toEqual(invoice.zipCode)
+        expect(invoiceDB.address.zipCode).toEqual(invoice.zipcode)
         expect(invoiceDB.createdAt).toStrictEqual(invoice.createdAt)
         expect(invoiceDB.updatedAt).toStrictEqual(invoice.updatedAt)
         expect(invoiceDB.items.length).toEqual(2)

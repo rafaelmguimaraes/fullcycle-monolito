@@ -1,4 +1,3 @@
-import { create } from "yup/lib/Reference";
 import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import Invoice from "../../domain/invoice.entity";
 import { GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto } from "./generate-invoice.usecase.dto";

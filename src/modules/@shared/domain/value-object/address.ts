@@ -15,7 +15,7 @@ export default class Address implements ValueObject {
     this._city = city
     this._state = state
     this._zipCode = zipCode
-
+    this.validate()
   }
 
   get street(): string {
@@ -40,6 +40,15 @@ export default class Address implements ValueObject {
 
   get zipCode(): string {
     return this._zipCode
+  }
+
+  toString(): string {
+    return `${this._street}, ${this._number}, ${this._complement}, ${this._city}, ${this._state}, ${this._zipCode}`
+  }
+
+  static fromString(address: string): Address {
+    const [street, number, complement, city, state, zipCode] = address.split(", ")
+    return new Address(street, number, complement, city, state, zipCode)
   }
 
   validate() {
